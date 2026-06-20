@@ -1,4 +1,4 @@
-### AI Productivity Dashboard
+# AI Productivity Dashboard
 
 ## 🚀 Day 12 of my 30 Days 30 AI Websites Challenge
 
@@ -55,7 +55,7 @@ Built with the help of AI-assisted development tools
 ## 📋 How It Works
 Enter daily productivity details.
 Click Analyze Productivity.
-# View:
+### View:
 Productivity Score
 Focus Score
 Learning Score
@@ -66,23 +66,23 @@ Copy or Download the generated report.
 
 ## 📌 Example
 
-# Input:
+### Input:
 Study Hours: 5
 Tasks Completed: 7
 Focus Level: 8
 Sleep Hours: 7
 Exercise: Yes
 
-# Output:
+### Output:
 Productivity Score: 92%
 Focus Score: 80%
 Learning Score: 74%
 Health Score: 100%
 
-# Personality:
+### Personality:
 🎯 Focus Master
 
-# Recommendations:
+### Recommendations:
 • Great study consistency
 • Outstanding focus level
 • Healthy sleep schedule
@@ -92,7 +92,7 @@ Health Score: 100%
 
 This project is part of my 30 Days 30 AI Websites Challenge where I build and publish one AI-assisted website every day.
 
-📈 Progress
+## 📈 Progress
 Day 1 ✅ AI Resume Analyzer
 Day 2 ✅ AI Career Roadmap Generator
 Day 3 ✅ AI Project Idea Generator
