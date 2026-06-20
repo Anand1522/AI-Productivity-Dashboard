@@ -93,21 +93,24 @@ Health Score: 100%
 This project is part of my 30 Days 30 AI Websites Challenge where I build and publish one AI-assisted website every day.
 
 ## 📈 Progress
-Day 1 ✅ AI Resume Analyzer
-Day 2 ✅ AI Career Roadmap Generator
-Day 3 ✅ AI Project Idea Generator
-Day 4 ✅ AI Skill Gap Analyzer
-Day 5 ✅ AI Interview Question Generator
-Day 6 ✅ AI Portfolio Review Analyzer
-Day 7 ✅ AI LinkedIn Post Generator
-Day 8 ✅ AI Salary Predictor
-Day 9 ✅ AI Startup Idea Validator
-Day 10 ✅ AI Study Planner
-Day 11 ✅ AI Tech Stack Recommender Pro
-Day 12 ✅ AI Productivity Dashboard
+
+- Day 1 ✅ AI Resume Analyzer
+- Day 2 ✅ AI Career Roadmap Generator
+- Day 3 ✅ AI Project Idea Generator
+- Day 4 ✅ AI Skill Gap Analyzer
+- Day 5 ✅ AI Interview Question Generator
+- Day 6 ✅ AI-Portfolio-Review-Analyzer
+- Day 7 ✅ AI LinkedIn Post Generator
+- Day 8 ✅ AI Salary Predictor
+- Day 9 ✅ AI Startup Idea Validator
+- Day 10 ✅ AI Study Planner
+- Day 11 ✅ AI Tech Stack Recommender Pro
+- Day 12 ✅ AI Productivity Dashboard
 
 ## 👨‍💻 Author
 
 Bettam Anand
 
 B.Tech CSE (Data Science)
+
+JNTUH University College of Engineering Palair
