@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Productivity Dashboard</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#667eea,#764ba2);
+padding:30px;
+color:white;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:30px;
+}
+
+.header h1{
+font-size:2.5rem;
+margin-bottom:10px;
+}
+
+.glass{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.2);
+border-radius:20px;
+padding:20px;
+}
+
+.form-section{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin-bottom:30px;
+}
+
+input,
+select{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+font-size:15px;
+}
+
+button{
+padding:14px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+background:#00e5ff;
+color:black;
+}
+
+button:hover{
+transform:scale(1.02);
+}
+
+.dashboard{
+display:none;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-bottom:25px;
+}
+
+.card{
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.card h2{
+font-size:2rem;
+margin-top:10px;
+}
+
+.progress-container{
+margin-top:10px;
+background:rgba(255,255,255,0.2);
+border-radius:10px;
+overflow:hidden;
+height:20px;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:#00ff99;
+transition:1s;
+}
+
+.recommendations{
+margin-top:25px;
+line-height:1.8;
+}
+
+.actions{
+display:flex;
+gap:10px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.copyBtn{
+background:#00ff99;
+}
+
+.downloadBtn{
+background:#ffcc00;
+}
+
+.resetBtn{
+background:#ff4d4d;
+color:white;
+}
+
+.footer{
+margin-top:20px;
+text-align:center;
+opacity:0.8;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>🚀 AI Productivity Dashboard</h1>
+<p>Track. Analyze. Improve.</p>
+</div>
+
+<div class="glass">
+
+<div class="form-section">
+
+<input
+type="number"
+id="studyHours"
+placeholder="Study Hours Today">
+
+<input
+type="number"
+id="tasksCompleted"
+placeholder="Tasks Completed">
+
+<input
+type="number"
+id="focusLevel"
+placeholder="Focus Level (1-10)">
+
+<input
+type="number"
+id="sleepHours"
+placeholder="Sleep Hours">
+
+<select id="exercise">
+
+<option value="">Exercise Done?</option>
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+
+</select>
+
+<button onclick="analyzeProductivity()">
+Analyze Productivity
+</button>
+
+</div>
+
+<div
+id="dashboard"
+class="dashboard">
+
+<div class="cards">
+
+<div class="glass card">
+<h3>🔥 Productivity</h3>
+<h2 id="productivityScore">0%</h2>
+<div class="progress-container">
+<div class="progress-bar"
+id="productivityBar">
+</div>
+</div>
+</div>
+
+<div class="glass card">
+<h3>🎯 Focus</h3>
+<h2 id="focusScore">0%</h2>
+<div class="progress-container">
+<div class="progress-bar"
+id="focusBar">
+</div>
+</div>
+</div>
+
+<div class="glass card">
+<h3>📚 Learning</h3>
+<h2 id="learningScore">0%</h2>
+<div class="progress-container">
+<div class="progress-bar"
+id="learningBar">
+</div>
+</div>
+</div>
+
+<div class="glass card">
+<h3>💪 Health</h3>
+<h2 id="healthScore">0%</h2>
+<div class="progress-container">
+<div class="progress-bar"
+id="healthBar">
+</div>
+</div>
+</div>
+
+</div>
+
+<div
+class="glass recommendations"
+id="recommendations">
+</div>
+
+<div class="actions">
+
+<button
+class="copyBtn"
+onclick="copyReport()">
+Copy Report
+</button>
+
+<button
+class="downloadBtn"
+onclick="downloadReport()">
+Download Report
+</button>
+
+<button
+class="resetBtn"
+onclick="resetDashboard()">
+Reset
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+Day 12 • 30 Days 30 AI Websites Challenge
+</div>
+
+</div>
+
+<script>
+
+function analyzeProductivity(){
+
+let study=parseFloat(document.getElementById("studyHours").value);
+let tasks=parseFloat(document.getElementById("tasksCompleted").value);
+let focus=parseFloat(document.getElementById("focusLevel").value);
+let sleep=parseFloat(document.getElementById("sleepHours").value);
+let exercise=document.getElementById("exercise").value;
+
+if(
+isNaN(study)||
+isNaN(tasks)||
+isNaN(focus)||
+isNaN(sleep)||
+exercise===""){
+alert("Please fill all fields.");
+return;
+}
+
+/* INPUT CAPS */
+
+study=Math.min(study,12);
+tasks=Math.min(tasks,15);
+focus=Math.min(focus,10);
+sleep=Math.min(sleep,12);
+
+/* PRODUCTIVITY */
+
+let productivity=
+Math.min(
+100,
+Math.round(
+(study*8)+
+(tasks*3)+
+(focus*4)
+)
+);
+
+/* FOCUS */
+
+let focusScore=
+Math.min(
+100,
+focus*10
+);
+
+/* LEARNING */
+
+let learning=
+Math.min(
+100,
+Math.round(
+(study*12)+(tasks*2)
+)
+);
+
+/* HEALTH */
+
+let health=0;
+
+if(sleep>=7 && sleep<=8){
+health=80;
+}
+else if(sleep>=6){
+health=65;
+}
+else{
+health=45;
+}
+
+if(exercise==="Yes"){
+health+=20;
+}
+
+if(health>100){
+health=100;
+}
+
+/* PERSONALITY */
+
+let personality="";
+let personalityText="";
+
+if(productivity>=85 && focusScore>=85){
+
+personality="🎯 Focus Master";
+
+personalityText=
+"You maintain excellent focus and consistently complete your planned work.";
+
+}
+else if(productivity>=80){
+
+personality="🔥 Deep Worker";
+
+personalityText=
+"You spend significant time on meaningful work and maintain strong productivity.";
+
+}
+else if(learning>=80){
+
+personality="📚 Consistent Learner";
+
+personalityText=
+"You prioritize learning and continuously improve your skills.";
+
+}
+else if(health>=80){
+
+personality="💪 Balanced Performer";
+
+personalityText=
+"You maintain a healthy balance between productivity and well-being.";
+
+}
+else{
+
+personality="⚡ Fast Executor";
+
+personalityText=
+"You complete tasks quickly and keep moving forward.";
+
+}
+
+/* DASHBOARD */
+
+document.getElementById("dashboard").style.display="block";
+
+updateScore(
+"productivityScore",
+"productivityBar",
+productivity
+);
+
+updateScore(
+"focusScore",
+"focusBar",
+focusScore
+);
+
+updateScore(
+"learningScore",
+"learningBar",
+learning
+);
+
+updateScore(
+"healthScore",
+"healthBar",
+health
+);
+
+/* RECOMMENDATIONS */
+
+let tips=[];
+
+/* NEGATIVE FEEDBACK */
+
+if(study<2){
+tips.push("📚 Increase study hours to improve learning consistency.");
+}
+
+if(tasks<3){
+tips.push("✅ Complete more planned tasks each day.");
+}
+
+if(focus<6){
+tips.push("🎯 Improve focus by reducing distractions.");
+}
+
+if(sleep<7){
+tips.push("😴 Aim for 7–8 hours of sleep daily.");
+}
+
+if(exercise==="No"){
+tips.push("💪 Add at least 20–30 minutes of exercise.");
+}
+
+/* POSITIVE FEEDBACK */
+
+if(study>=5){
+tips.push("🌟 Great study consistency today.");
+}
+
+if(tasks>=5){
+tips.push("🚀 Excellent task completion rate.");
+}
+
+if(focus>=8){
+tips.push("🔥 Outstanding focus level.");
+}
+
+if(sleep>=7 && sleep<=8){
+tips.push("💚 Healthy sleep schedule maintained.");
+}
+
+if(exercise==="Yes"){
+tips.push("🏃 Great job staying physically active.");
+}
+
+document.getElementById("recommendations").innerHTML=
+
+`
+<h2>🤖 AI Productivity Analysis</h2>
+
+<br>
+
+<h3>${personality}</h3>
+
+<p>${personalityText}</p>
+
+<br>
+
+<h3>📋 Personalized Recommendations</h3>
+
+<br>
+
+${tips.join("<br><br>")}
+
+`;
+
+}
+
+/* SCORE UPDATE */
+
+function updateScore(
+scoreId,
+barId,
+value
+){
+
+document.getElementById(scoreId)
+.innerText=value+"%";
+
+document.getElementById(barId)
+.style.width=value+"%";
+
+}
+
+/* COPY */
+
+function copyReport(){
+
+let text=
+document.getElementById("recommendations")
+.innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("Report copied successfully!");
+
+}
+
+/* DOWNLOAD */
+
+function downloadReport(){
+
+let text=
+document.getElementById("recommendations")
+.innerText;
+
+let blob=
+new Blob(
+[text],
+{
+type:"text/plain"
+}
+);
+
+let a=
+document.createElement("a");
+
+a.href=
+URL.createObjectURL(blob);
+
+a.download=
+"AI_Productivity_Report.txt";
+
+a.click();
+
+}
+
+/* RESET */
+
+function resetDashboard(){
+
+document.getElementById("studyHours").value="";
+document.getElementById("tasksCompleted").value="";
+document.getElementById("focusLevel").value="";
+document.getElementById("sleepHours").value="";
+document.getElementById("exercise").value="";
+
+document.getElementById("dashboard").style.display="none";
+
+}
+
+</script>
+</body>
+</html>
