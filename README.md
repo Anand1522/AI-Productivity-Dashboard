@@ -18,24 +18,24 @@ https://aiproductivity-dashboard.netlify.app/
 
 ## ✨ Features
 
-Daily Productivity Analysis
-Productivity Score Calculation
-Focus Score Tracking
-Learning Score Evaluation
-Health Score Assessment
-AI Productivity Personality Detection
-Personalized Recommendations
-Progress Visualization
-Copy Report Feature
-Download Report Feature
+- Daily Productivity Analysis
+- Productivity Score Calculation
+- Focus Score Tracking
+- Learning Score Evaluation
+- Health Score Assessment
+- AI Productivity Personality Detection
+- Personalized Recommendations
+- Progress Visualization
+- Copy Report Feature
+- Download Report Feature
 
 ## 📋 User Inputs
 
-Study Hours
-Tasks Completed
-Focus Level
-Sleep Hours
-Exercise Status
+- Study Hours
+- Tasks Completed
+- Focus Level
+- Sleep Hours
+- Exercise Status
 
 ## 🎯 AI Productivity Personalities
 
@@ -47,22 +47,22 @@ Exercise Status
 
 ## 🛠 Technologies Used
 
-HTML
-CSS
-JavaScript
-Built with the help of AI-assisted development tools
+- HTML
+- CSS
+- JavaScript
+- Built with the help of AI-assisted development tools
 
 ## 📋 How It Works
 Enter daily productivity details.
 Click Analyze Productivity.
 ### View:
-Productivity Score
-Focus Score
-Learning Score
-Health Score
-Productivity Personality
-Personalized Recommendations
-Copy or Download the generated report.
+- Productivity Score
+- Focus Score
+- Learning Score
+- Health Score
+- Productivity Personality
+- Personalized Recommendations
+- Copy or Download the generated report.
 
 ## 📌 Example
 
