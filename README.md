@@ -39,11 +39,11 @@ https://aiproductivity-dashboard.netlify.app/
 
 ## 🎯 AI Productivity Personalities
 
-🎯 Focus Master
-🔥 Deep Worker
-📚 Consistent Learner
-💪 Balanced Performer
-⚡ Fast Executor
+ 🎯 Focus Master
+ 🔥 Deep Worker
+ 📚 Consistent Learner
+ 💪 Balanced Performer
+ ⚡ Fast Executor
 
 ## 🛠 Technologies Used
 
@@ -53,8 +53,8 @@ https://aiproductivity-dashboard.netlify.app/
 - Built with the help of AI-assisted development tools
 
 ## 📋 How It Works
-Enter daily productivity details.
-Click Analyze Productivity.
+ Enter daily productivity details.
+ Click Analyze Productivity.
 ### View:
 - Productivity Score
 - Focus Score
@@ -67,17 +67,17 @@ Click Analyze Productivity.
 ## 📌 Example
 
 ### Input:
-Study Hours: 5
-Tasks Completed: 7
-Focus Level: 8
-Sleep Hours: 7
-Exercise: Yes
+ Study Hours: 5
+ Tasks Completed: 7
+ Focus Level: 8
+ Sleep Hours: 7
+ Exercise: Yes
 
 ### Output:
-Productivity Score: 92%
-Focus Score: 80%
-Learning Score: 74%
-Health Score: 100%
+ Productivity Score: 92%
+ Focus Score: 80%
+ Learning Score: 74%
+ Health Score: 100%
 
 ### Personality:
 🎯 Focus Master
